@@ -1,0 +1,13 @@
+<div class="navbar">
+  <img class="navbar--logo" src="assets/images/logo-instagram.png">
+  <div class="navbar--search">
+    <img src="assets/images/search.svg">
+    <input type="text" placeholder="Pesquisar">
+  </div>
+  <div class="navbar--list">
+    <div class="navbar--list--item" *ngFor="let item of navbarList" [routerLink]="item.link">
+      <img [src]=" currentNavbar === item.type ? item.iconActivated : item.icon ">
+    </div>
+    <img class="navbar--list--profile" routerLink="/profile" src="assets/images/eu.jpg">
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &--ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem;
+
+    &--li {
+      text-decoration: none;
+      color: #949494;
+
+      a {
+        font-size: .9rem;
+        text-decoration: none;
+        color: #949494;
+      }
+    }
+  }
+}
