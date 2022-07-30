@@ -1,6 +1,6 @@
 .login {
-  --border: 219,219,219;
-  --fe0: 0,55,107;
+  --border: 219, 219, 219;
+  --fe0: 0, 55, 107;
   background: #e6e6e6;
   width: 100%;
   height: 100%;
@@ -9,30 +9,21 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  overflow: auto;
 
   &--container {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     gap: 1rem;
-    border: 1px solid rgba(var(--border,219,219,219),1);
+    width: 20rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(var(--border, 219, 219, 219), 1);
     background: white;
-    width: 21vw;
+    transition: height 300ms ease;
 
     &--logo {
       height: 4rem;
-    }
-
-    input {
-      color: grey;
-      width: 100%;
-      height: 2.5rem;
-      font-size: .7rem;
-      padding: 0.5rem;
-      border-radius: 0.2rem;
-      border: 1px solid rgba(var(--border,219,219,219),1);
-      background: #fafafa;
-      outline: 0;
     }
 
     &--button {
@@ -76,12 +67,49 @@
       font-size: .7rem;
       text-decoration: none;
     }
+
+    &--title {
+      color: #949494;
+      text-align: center;
+      margin: .5rem 0;
+    }
+
+    &--button-register {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      background: #0095f6;
+      border-radius: .2rem;
+      height: 2.2rem;
+
+      img {
+        height: 1.5rem;
+        margin-bottom: .1rem;
+      }
+    }
+
+    &--create {
+
+      &--span {
+        color: #949494;
+        text-align: center;
+        font-size: .8rem;
+
+        a {
+          text-decoration: none;
+          color: #949494;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   &--container-create {
-    width: 21vw;
+    width: 20rem;
     padding: 2rem;
-    border: 1px solid rgba(var(--border,219,219,219),1);
+    border: 1px solid rgba(var(--border, 219, 219, 219), 1);
     background: white;
     font-size: .9rem;
     color: black;
@@ -90,8 +118,10 @@
     a {
       font-weight: bold;
       text-decoration: none;
+      cursor: pointer;
     }
   }
+
 
   &--app {
     color: black;
@@ -117,4 +147,16 @@
 .risco {
   border-bottom: 1px solid #949494;
   width: 40%;
+}
+
+.login-input {
+  color: grey;
+  width: 100%;
+  height: 2.5rem;
+  font-size: .7rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid rgba(var(--border, 219, 219, 219), 1);
+  background: #fafafa;
+  outline: 0;
 }

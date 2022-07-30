@@ -1,25 +1,58 @@
-<div class="login">
+<div class="login" [style.padding-top]="isNewUser ? '13rem' : '-3rem'">
   <div class="login--container">
-    <img class="login--container--logo" src="assets/images/logo-instagram.png">
-    <input type="text" [(ngModel)]="user.user" placeholder="Telefone, nome de usuário ou email">
-    <input type="password" [(ngModel)]="user.password" placeholder="Senha">
-    <button class="login--container--button" [class.disabled]="!canLogin()" (click)="login()">Entrar</button>
+    <ng-container *ngIf="!isNewUser">
+      <img class="login--container--logo" src="assets/images/logo-instagram.png">
+      <input type="text" class="login-input" [(ngModel)]="user.user" placeholder="Telefone, nome de usuário ou email">
+      <input class="login-input" type="password" [(ngModel)]="user.password" placeholder="Senha">
+      <button class="login--container--button" [class.disabled]="!canLogin()" (click)="login()">Entrar</button>
 
-    <div class="login--container--or">
-      <div class="risco"></div>
-      <p>OU</p>
-      <div class="risco"></div>
-    </div>
+      <div class="login--container--or">
+        <div class="risco"></div>
+        <p>OU</p>
+        <div class="risco"></div>
+      </div>
 
-    <button class="login--container--facebook">
-      <img class="login--container--facebook--logo" src="assets/images/logo-facebook.png">
-      Entrar com o Facebook
-    </button>
-    <a href="#" class="login--container--forgot">Esqueceu a senha?</a>
+      <button class="login--container--facebook">
+        <img class="login--container--facebook--logo" src="assets/images/logo-facebook.png">
+        Entrar com o Facebook
+      </button>
+      <a href="#" class="login--container--forgot">Esqueceu a senha?</a>
+    </ng-container>
+
+    <ng-container *ngIf="isNewUser">
+      <img class="login--container--logo" src="assets/images/logo-instagram.png">
+
+      <h4 class="login--container--title">
+        Cadastre-se para ver fotos e vídeos dos seus amigos.
+      </h4>
+
+      <button class="login--container--button-register">
+        <img src="assets/images/logo-facebook.png">
+        Entrar com o Facebook
+      </button>
+
+      <div class="login--container--or">
+        <div class="risco"></div>
+        <p>OU</p>
+        <div class="risco"></div>
+      </div>
+      <input type="text" class="login-input" [(ngModel)]="createUser.email" placeholder="Número do celular ou email">
+      <input type="text" class="login-input" [(ngModel)]="createUser.username" placeholder="Nome completo">
+      <input type="text" class="login-input" [(ngModel)]="createUser.name" placeholder="Nome de usuário">
+      <input type="text" class="login-input" [(ngModel)]="createUser.password" placeholder="Senha">
+      <span class="login--container--create--span">
+        As pessoas que usam nosso serviço podem ter carregado suas informações de contato no Instagram. <a href="https://www.facebook.com/help/instagram/261704639352628">Saiba mais</a>
+      </span>
+      <span class="login--container--create--span">
+        Ao se cadastrar, você concorda com nossos <a href="https://help.instagram.com/581066165581870">Termos</a> e <a href="https://www.facebook.com/privacy/policy">Política de Privacidade</a>.
+      </span>
+      <button class="login--container--button" [class.disabled]="!canLogin()" (click)="login()">Cadastrar-se</button>
+    </ng-container>
   </div>
 
   <div class="login--container-create">
-    <span>Não tem uma conta? <a href="#">Cadastre-se</a></span>
+    <span *ngIf="!isNewUser">Não tem uma conta? <a (click)="isNewUser = !isNewUser">Cadastre-se</a></span>
+    <span *ngIf="isNewUser">Tem uma conta? <a (click)="isNewUser = !isNewUser">Conecte-se</a></span>
   </div>
   <span class="login--app">Obtenha o aplicativo.</span>
   <div class="login--stores">
