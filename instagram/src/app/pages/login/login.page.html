@@ -1,5 +1,5 @@
 <div class="login" [style.padding-top]="isNewUser ? '13rem' : '-3rem'">
-  <div class="login--container">
+  <div class="login--container" [style.height]="isNewUser ? '60rem' : '25rem'">
     <ng-container *ngIf="!isNewUser">
       <img class="login--container--logo" src="assets/images/logo-instagram.png">
       <input type="text" class="login-input" [(ngModel)]="user.user" placeholder="Telefone, nome de usuário ou email">
